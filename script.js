@@ -174,6 +174,7 @@ var calcular = () =>{
 
 var limpartela = () => {
     conta.innerText = "";
+    resultado.innerText= "0";
 }
 
 var apaganumero = () =>{
