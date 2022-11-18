@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.conteudo{
+    width: 100%;
+    min-height: 100vh;
+    background: #4e0707;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo .calculadora{
+    width: 280px;
+    background: #151e3d;
+    padding: 20px 10px;
+    border-radius: 10px;
+    box-shadow: 5px 7px 10px rgba(12, 2,2, 0.9);
+}
+
+.conteudo .calculadora .tela{
+    width: 100%;
+    background: #808588;
+    padding: 7px;
+    color: #FFF;
+    font-size: 18px;
+    border-radius: 5px 5px 0 0;
+    box-shadow: inset 2px 2px 3px  rgb(255,255,255,0.3);
+}
+
+.conteudo .calculadora .tela #resultado{
+    text-align: right;
+    margin-top: 5px;
+}
+
+.conteudo .calculadora .numpad{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.conteudo .calculadora .numpad button{
+    width: 52px;
+    margin-right: 17.3px;
+    margin-top: 12px;
+    height: 32px;
+    border: none;
+    outline: none;
+    border-radius: 360px;
+    box-shadow: inset 2px 2px 3px rgb(12,2,2,0.5);
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#circulo{
+    font-size: 8px;
+}
+
+.conteudo .calculadora .numpad button:nth-child(4n){
+    margin-right: 0;
+}
+
+.conteudo .calculadora .titulo{
+    text-align: center;
+    background: #FFF;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    width: 50%;
+    margin-left: 65px;
+    padding: 2px;
+}
+
+.conteudo .calculadora .tela #resultado, .conteudo .calculadora .tela #conta{
+    height: 32px;
+}
