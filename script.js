@@ -132,7 +132,7 @@ document.onkeyup = e =>{
         type_to("%");
     }else if(e.key == "." || e.key == "Num." || e.key == "," || e.key == "Num,"){
         type_to(".");
-    }else if(e.key == "Enter" || e.key == "NumEnter"){
+    }else if(e.key == "Enter" || e.key == "NumEnter"){      
         calcular();
     }else if(e.key == "Delete"){
         limpartela();
@@ -152,13 +152,14 @@ var type_to = text =>{
 }
 
 var calcular = () =>{
+    
     var res = conta.innerText;
 
     if(res.indexOf("%") == -1){
         if(res.indexOf("X") != -1){
-            res = res.replace("X", "*");
+            res = res.replaceAll("X", "*");
         }
-    }else {
+    }else{
         res = res.replace("%", "");
         if(res.indexOf("X") != -1){
             var ress = res.split("X");
@@ -169,7 +170,12 @@ var calcular = () =>{
             alert("Erro matematico! Porcentagem não pode ser calculado sem multiplicação!")
         }
     }
-    resultado.innerText = eval(res);
+    if(res == ""){
+        resultado.innerText = "0";
+    }else{
+        resultado.innerText = "= " + eval(res);
+    }
+    
 }
 
 var limpartela = () => {
