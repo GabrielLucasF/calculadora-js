@@ -103,3 +103,26 @@
     font-size: 12px;
     text-align: center;
 }
+
+#zero:active,
+#um:active,
+#dois:active,
+#tres:active,
+#quatro:active,
+#cinco:active,
+#seis:active,
+#sete:active,
+#oito:active,
+#nove:active,
+#divisao:active,
+#multiplicacao:active,
+#porcentagem:active,
+#circulo:active,
+#apagar:active,
+#limpar:active,
+#igual:active,
+#mais:active,
+#menos:active{
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
