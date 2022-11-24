@@ -93,6 +93,7 @@ limpar.onclick = () => {
 
 igual.onclick = () => {
     calcular();
+    calcularM();
 }
 
 apagar.onclick = () => {
@@ -250,18 +251,6 @@ var type_to = text => {
     }
 }
 
-
-/*
-let botao = "%";
-
-if (botao === "%") {
-    let valor = 10;
-    let percent = 1;
-    let calc = (valor / 100) * percent;
-    let total = calc + valor;
-    console.log(total);
-}
-*/
 var calcular = () => {
 
     var res = conta.innerText;
@@ -271,31 +260,72 @@ var calcular = () => {
             res = res.replaceAll("X", "*");
         }
     } else {
+        const valor = res;
 
-
-
-        if (res.indexOf("X") != -1) {
-            var ress = res.split("X");
-            var total = eval(ress[0]);
-            var preciso = eval(ress[1]);
-            res = (preciso / 100) * total;
-        } else if (res.match(/%.*/)) {
-
-            var str = res.split("+");
-            var valor = str[0];
-            var percent = str[1].replaceAll("%", "");
-            res = eval(valor) + eval(((valor / 100) * percent));
-            alert(res)
-        } else {
-            alert("Erro matematico! Porcentagem não pode ser calculado sem multiplicação!")
-        }
+// PEGA CARACTERE QUE ESTA SENDO USADO NO CALCULO.
+function character(valor) {
+    if (valor.indexOf("+") != '-1') {
+        return ("+")
+    } else if (valor.indexOf("*") != '-1') {
+        return ("*")
+    } else if (valor.indexOf("/") != '-1') {
+        return ("/")
+    } else if (valor.indexOf("-") != '-1') {
+        return ("-")
     }
+}
+
+// PEGA VALOR DO PERCENTUAL
+function explodePercentage(valor) {
+    let v1 = valor.match(/%.*/).input.substr(-3);
+    return v1.replace("%", "");
+    
+}
+
+// CALCULA PERCENTUAL
+function percentage(num, per, valor) {
+    let nnum = parseInt(num)
+    let calc = (num / 100) * per
+
+    if (character(valor) == '+') {
+        let result = nnum + calc;
+        return eval(result) ;
+
+    } else if (character(valor) == '*') {
+        let result = nnum * calc;
+        return eval(result) ;
+
+    } else if (character(valor) == '/') {
+        let result = nnum / calc;
+        return eval(result) ;
+
+    } else if (character(valor) == '-') {
+        let result = nnum - calc;
+        return eval(result) ;
+
+    }else{
+        null
+    }
+}
+
+    // CONSOLIDA CONTA FINAL
+    vCalc = valor.split( character(valor) )[0] ;
+    if (valor.match(/%.*/)) {
+        console.log("RESULTADO = " + percentage(vCalc, explodePercentage(valor), valor));
+        resultado.innerText = "= "  + percentage(vCalc, explodePercentage(valor), valor);
+    } else {
+        console.log("RESULTADO = " + eval(valor))
+    }
+}
+}
+
+var calcularM = () => {
+    var res = conta.innerText;
     if (res == "") {
         resultado.innerText = "0";
     } else {
         resultado.innerText = "= " + eval(res);
     }
-
 }
 
 var limpartela = () => {
