@@ -228,6 +228,7 @@ document.onkeyup = e => {
         circulo.style.color = '#121212'
     } else if (e.key == "Enter" || e.key == "NumEnter") {
         calcular();
+        calcularM();
         igual.style.backgroundColor = '#87ceeb';
         igual.style.color = '#ffffff'
     } else if (e.key == "Delete") {
